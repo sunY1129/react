@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const list = [{
+      id:1,
+      name:'홍길동',
+      age:30
+    },
+    {
+      id:2,
+      name:'홍길순',
+      age:20
+    },
+    {
+      id:3,
+      name:'임꺽정',
+      age:40
+    }
+  ]
+  class List extends React.Component{
+    render(){
+      const itemList = this.props.list.map((item,index)=>(
+        <li key={item.id}>
+          {/* key를 사용하면 react에서 최적화하는데 도움이됨 */}
+          {/* 
+          리스트데이터가 순서가 바뀌면 
+          index는 객체가 바뀌었다고 생각하고, 다시 그리게되므로
+          재렌더링이되어 속도문제가 생길수 있기 때문에 추전하지 않는다.
+          ID가 없는 경우에만 사용하도록 한다.
+          또한, ID는 항상 넣어 주는것이 훨씬 좋다!
+          */}
+          <p>이름: {item.name}</p>  
+          <p>나이: {item.age}</p>  
+        </li>
+      ))
+      return(
+        <ul>
+          {itemList}
+        </ul>
+      )
+    }
+  }
+    ReactDOM.render(<List list={list}/>,document.getElementById('root'))
+  </script>
+</body>
+</html>
