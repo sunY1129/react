@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class MyTag extends React.Component {
+      render(){
+        return(
+          <div style={{border:'1px solid black', margin:'10px'}}>
+            <h1>Hello {this.props.name}</h1>
+            <p>{this.props.paragraph}</p>
+          </div>
+        )
+      }
+    }
+    const element = (
+      <div>
+        <MyTag name='Kim' paragraph='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error cumque eaque reiciendis illo hic id. Veniam, ratione incidunt! Vero veniam vitae consequatur libero ipsam voluptate officia ex fugit ipsum deleniti.' />
+        <MyTag name='Park' paragraph='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error cumque eaque reiciendis illo hic id. Veniam, ratione incidunt! Vero veniam vitae consequatur libero ipsam voluptate officia ex fugit ipsum deleniti.' />
+        <MyTag name='Lee' paragraph='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error cumque eaque reiciendis illo hic id. Veniam, ratione incidunt! Vero veniam vitae consequatur libero ipsam voluptate officia ex fugit ipsum deleniti.' />
+      </div>
+    )
+    const root = document.getElementById('root')
+    ReactDOM.render(element, root)
+  </script>
+</body>
+</html>

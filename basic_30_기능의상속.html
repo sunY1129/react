@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    // class 사람{
+    //   constructor(){
+    //     alert('hi')
+    //     this.이름 = '홍길동'
+    //     this.나이 = 20
+    //     //초기값, 생성되자마자 바로 실행
+    //   }
+    //   걷다(){
+    //     console.log(this.이름 + '이(가) 걷다.')
+    //   }
+    // }
+    // const 홍길동 = new 사람()
+    // 홍길동.걷다()
+
+    class 동물{
+      constructor(){}
+      숨쉬다(){
+        console.log(this.이름 + ' 이(가)숨쉽니다.')
+      }
+    }
+    class 사람 extends 동물{
+      constructor(이름,나이){
+        super()
+        this.이름 = 이름
+        this.나이 = 나이
+      }
+      걷다(){
+        console.log(this.나이 + '세의' + this.이름 + ' 이(가)걷다.')
+      }
+    }
+    const 홍길동 = new 사람('홍길동',30)
+    const 홍길순 = new 사람('홍길순',28)
+    홍길동.걷다()
+    홍길순.걷다()
+
+    홍길동.숨쉬다()
+    홍길순.숨쉬다()
+  </script>
+</body>
+</html>

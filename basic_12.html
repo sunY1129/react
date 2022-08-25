@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const cardStyle = {
+      border: '1px solid black',
+      padding: '10px'
+    }
+    function Card (props) {
+      return <div style={cardStyle}>
+          <span>2022년8월12일</span>
+          <hr />
+          <span>{props.author}</span>
+          {props.children}
+        </div>
+    }
+    //{props.children}: Card태그의 자식태그 소환
+    const element = <Card author='NoName'>
+        <h1>Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam doloremque quaerat necessitatibus asperiores numquam, adipisci qui totam corporis corrupti maiores, a porro reprehenderit assumenda, nisi obcaecati. Quam molestias asperiores illum.</p>
+      </Card>
+    const root = document.getElementById('root')
+    ReactDOM.render(element, root)
+  </script>
+</body>
+</html>

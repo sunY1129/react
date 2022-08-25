@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const root = document.getElementById('root')
+
+    class App extends React.Component{
+      constructor(props){
+        super(props)
+      }
+      render(){
+        return <MyButton buttonName='안녕' />
+      }
+    }
+
+    class MyButton extends React.Component{
+      constructor(props){
+        super(props)
+        this.state = {}
+        this.state.count = 0
+      }
+      render(){
+        return <button onClick={this.함수.bind(this)}>{this.props.buttonName} 클릭 카운트 {this.state.count}</button>
+      }
+      //bind(this) : 함수()는 MyButton의 소속이고 button에 빌려준것이다.
+      //그안에 this는 MyButton이였는데 button에 주게되면 주어가 바뀌어서 this의 주인이 바뀌게 된다.
+      //class안에 있는 함수()를 사용할때는 bind(this)로 연결을 해주어야 한다.
+      //여기에서 this는 this.state = {}의 this임
+      함수(){
+        const newCount = this.state.count + 1
+        this.setState({
+          count : newCount
+        })
+      }
+    }
+
+    ReactDOM.render(<App />,root)
+  </script>
+</body>
+</html>
